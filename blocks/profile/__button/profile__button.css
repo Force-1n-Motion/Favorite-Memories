@@ -1,0 +1,14 @@
+.profile__button {
+  background: url(../../../images/4.png);
+  width: 24px;
+  height: 24px;
+  border: 1px solid #FFFFFF;
+  background-repeat: no-repeat;
+  margin-top: 20px;
+  background-position: center;
+}
+
+.profile__button:hover {
+  opacity: 0.6;
+
+}
