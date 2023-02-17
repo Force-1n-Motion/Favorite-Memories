@@ -1,32 +1,105 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./pages/index.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./pages/index.css" />
     <title>Место</title>
   </head>
   <body class="page">
     <header class="header">
-      <img src="./images/Vector.png" alt="Логотип" class="header__logo">
+      <img src="./images/logo.png" alt="Логотип" class="header__logo" />
     </header>
     <main>
       <section class="profile">
-        <img src="./images/image.jpg" alt="Жак-Ив Кусто фото" class="profile__avatar">
-          <div class="profile__info">
-            <h1 class="profile__title">Жак-Ив Кусто</h1>
-            <p class="profile__text">Исследователь океана</p>
-            <button class="profile__button"></button>
-          </div>
-          <button class="button"></button>
+        <img
+          src="./images/image.jpg"
+          alt="Жак-Ив Кусто фото"
+          class="profile__avatar"
+        />
+        <div class="profile__info">
+          <h1 class="profile__title">Жак-Ив Кусто</h1>
+          <p class="profile__text">Исследователь океана</p>
+          <button
+            type="button"
+            class="profile__edit"
+            aria-label="Редактировать профиль"
+          ></button>
+        </div>
+        <button
+          type="button"
+          class="profile__add-card"
+          aria-label="Добавить карточку"
+        ></button>
+      </section>
+      <section class="elements">
+        <article class="element">
+          <img
+            src="./images/1.jpg"
+            alt="Карачаевск фото"
+            class="element__img"
+          />
+          <p class="element__text">Карачаевск</p>
+          <button class="button__like"></button>
+        </article>
+        <article class="element">
+          <img
+            src="./images/2.png"
+            alt="Гора эльбрус фото"
+            class="element__img"
+          />
+          <p class="element__text">Гора Эльбрус</p>
+          <button class="button__like"></button>
+        </article>
+        <article class="element">
+          <img src="./images/3.png" alt="Домбай фото" class="element__img" />
+          <p class="element__text">Домбай</p>
+          <button class="button__like"></button>
+        </article>
+        <article class="element">
+          <img
+            src="./images/1.jpg"
+            alt="Карачаевск фото"
+            class="element__img"
+          />
+          <p class="element__text">Карачаевск</p>
+          <button class="button__like"></button>
+        </article>
+        <article class="element">
+          <img
+            src="./images/2.png"
+            alt="Гора эльбрус фото"
+            class="element__img"
+          />
+          <p class="element__text">Гора эльбрус</p>
+          <button class="button__like"></button>
+        </article>
+        <article class="element">
+          <img src="./images/3.png" alt="Домбай фото" class="element__img" />
+          <p class="element__text">Домбай</p>
+          <button class="button__like"></button>
+        </article>
       </section>
     </main>
-    <footer>
+    <footer class="footer">
+      <p class="footer__text">© 2020 Mesto Russia</p>
     </footer>
     <div class="popup">
-      <div class="popup__container"></div>
+      <div class="popup__container">
+        <button
+          type="button"
+          class="popup__close"
+          aria-label="Закрыть"
+        ></button>
+        <form class="popup__form">
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <input name="popup-name" class="popup__input popup__input_user_name">
+          <input name="popup-work" class="popup__input popup__input_user_occupation">
+          <button type="submit" class="popup__save">Сохранить</button>
+        </form>
+      </div>
     </div>
-    <script></script>
+    <script src="./scripts/index.js"></script>
   </body>
 </html>
