@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./pages/index.css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./pages/index.css">
     <title>Место</title>
   </head>
   <body class="page">
     <header class="header">
-      <img src="./images/logo.png" alt="Логотип" class="header__logo" />
+      <img src="./images/Vector1.svg" alt="Логотип" class="header__logo">
     </header>
     <main>
       <section class="profile">
@@ -23,61 +23,75 @@
           <button
             type="button"
             class="profile__edit"
-            aria-label="Редактировать профиль"
-          ></button>
+            aria-label="Редактировать профиль">
+          </button>
         </div>
         <button
           type="button"
           class="profile__add-card"
-          aria-label="Добавить карточку"
-        ></button>
+          aria-label="Добавить карточку">
+        </button>
       </section>
-      <section class="elements">
+      <section aria-label="Карточки" class="elements">
         <article class="element">
-          <img
-            src="./images/1.jpg"
-            alt="Карачаевск фото"
-            class="element__img"
-          />
-          <p class="element__text">Карачаевск</p>
-          <button class="button__like"></button>
+          <img 
+            src="./images/1.jpg" 
+            alt="Карачаевск фото" 
+            class="element__img">
+          <div class="element__content">
+            <h2 class="element__text">Карачаевск</h2>
+            <button type="button" class="element__button-like"></button>
+          </div>
         </article>
         <article class="element">
           <img
             src="./images/2.png"
             alt="Гора эльбрус фото"
-            class="element__img"
-          />
-          <p class="element__text">Гора Эльбрус</p>
-          <button class="button__like"></button>
+            class="element__img">
+          <div class="element__content">
+            <h2 class="element__text">Гора Эльбрус</h2>
+            <button type="button" class="element__button-like"></button>
+          </div>
         </article>
         <article class="element">
-          <img src="./images/3.png" alt="Домбай фото" class="element__img" />
-          <p class="element__text">Домбай</p>
-          <button class="button__like"></button>
+          <img 
+            src="./images/3.png" 
+            alt="Домбай фото" 
+            class="element__img">
+          <div class="element__content">
+            <h2 class="element__text">Домбай</h2>
+            <button type="button" class="element__button-like"></button>
+          </div>
         </article>
         <article class="element">
           <img
             src="./images/1.jpg"
             alt="Карачаевск фото"
-            class="element__img"
-          />
-          <p class="element__text">Карачаевск</p>
-          <button class="button__like"></button>
+            class="element__img">
+          <div class="element__content">
+            <h2 class="element__text">Карачаевск</h2>
+            <button type="button" class="element__button-like"></button>
+          </div>
         </article>
         <article class="element">
           <img
             src="./images/2.png"
             alt="Гора эльбрус фото"
-            class="element__img"
-          />
-          <p class="element__text">Гора эльбрус</p>
-          <button class="button__like"></button>
+            class="element__img">
+          <div class="element__content">
+            <h2 class="element__text">Гора эльбрус</h2>
+            <button type="button" class="element__button-like"></button>
+          </div>
         </article>
         <article class="element">
-          <img src="./images/3.png" alt="Домбай фото" class="element__img" />
-          <p class="element__text">Домбай</p>
-          <button class="button__like"></button>
+          <img 
+            src="./images/3.png" 
+            alt="Домбай фото" 
+            class="element__img">
+          <div class="element__content">
+            <h2 class="element__text">Домбай</h2>
+            <button type="button" class="element__button-like"></button>
+          </div>
         </article>
       </section>
     </main>
@@ -89,18 +103,18 @@
         <button
           type="button"
           class="popup__close"
-          aria-label="Закрыть"
-        ></button>
-        <form class="popup__form">
-          <h2 class="popup__title">Редактировать профиль</h2>
+          aria-label="Закрыть">
+        </button>
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <form name="edit" class="popup__form">
           <input
+            placeholder="Введите имя"
             name="popup-name"
-            class="popup__input popup__input_user_name"
-          />
+            class="popup__input popup__input_user_name">
           <input
+            placeholder="О себе"
             name="popup-work"
-            class="popup__input popup__input_user_occupation"
-          />
+            class="popup__input popup__input_user_occupation">
           <button type="submit" class="popup__save">Сохранить</button>
         </form>
       </div>
