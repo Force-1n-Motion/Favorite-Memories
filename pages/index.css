@@ -1,6 +1,5 @@
 @import url(../vendor/normalize.css);
 @import url(../vendor/fonts.css);
-@import url(../scripts/index.js);
 @import url(../blocks/page/page.css);
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);
@@ -12,10 +11,12 @@
 @import url(../blocks/profile/__avatar/profile__avatar.css);
 @import url(../blocks/profile/__add-card/profile__add-card.css);
 @import url(../blocks/elements/elements.css);
-@import url(../blocks/elements/element/element.css);
-@import url(../blocks/elements/__img/element__img.css);
-@import url(../blocks/elements/__text/element__text.css);
-@import url(../blocks/elements/__like/button__like.css);
+@import url(../blocks/element/element.css);
+@import url(../blocks/element/__button-like/element__button-like.css);
+@import url(../blocks/element/__button-like/_active/element__button-like_active.css);
+@import url(../blocks/element/__img/element__img.css);
+@import url(../blocks/element/__text/element__text.css);
+@import url(../blocks/element/__content/element__content.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__text/footer__text.css);
 @import url(../blocks/popup/popup.css);

@@ -8,6 +8,7 @@
   background-position: center;
   margin: 0 0 0 auto;
   padding: 0;
+  cursor: pointer;
 }
 
 .profile__add-card:hover {
@@ -18,5 +19,6 @@
   .profile__add-card {
     margin: 0 auto;
     width: 282px;
+    background-size: 16px 16px;
   }
 }

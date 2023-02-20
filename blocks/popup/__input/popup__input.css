@@ -1,6 +1,6 @@
 .popup__input {
   border: 0;
-  border-bottom: 1px solid rgba(0,0,0,.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   background-color: white;
   width: 358px;
   height: 27px;
@@ -11,12 +11,11 @@
   line-height: 17px;
   color: black;
   padding: 0;
-  
 }
 
 @media (max-width: 550px) {
   .popup__input {
-   width: 238px;
+    width: 238px;
     margin: 0 22px 30px;
   }
 }
