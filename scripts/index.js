@@ -11,9 +11,9 @@ const elementName = document.querySelector(".popup__input_element_name");
 const elementLink = document.querySelector(".popup__input_element_link");
 const formEdit = document.forms["form-edit"];
 const formAdd = document.forms["form-add"];
-const popupClose = document.querySelectorAll(".popup__close");
+const closeButtons = document.querySelectorAll(".popup__close");
 const cardElements = document.querySelector(".elements");
-const images = document.querySelector(".popup__image");
+const imagePopupPicture = document.querySelector(".popup__image");
 const caption = document.querySelector(".popup__caption");
 
 const initialCards = [
@@ -66,7 +66,7 @@ function closePopup(popup) {
 }
 
 // Сохранение данных профиля
-const handleFormSubmit = function (event) {
+const handleProfileFormSubmit = function (event) {
   event.preventDefault();
   profileTitle.textContent = userName.value;
   profileText.textContent = userOccupation.value;
@@ -103,8 +103,8 @@ function createCard(name, link) {
 }
 
 const clickImage = function (name, link) {
-  images.alt = name;
-  images.src = link;
+  imagePopupPicture.alt = name;
+  imagePopupPicture.src = link;
   caption.textContent = name;
 
   openPopup(popupImages);
@@ -128,7 +128,7 @@ function deleteCard(evt) {
   card.remove();
 }
 
-popupClose.forEach(button => {
+closeButtons.forEach(button => {
     // определяем 1 раз ближайший к крестику попап
     const popup = button.closest(".popup");
     // устанавливаем обработчик закрытия на крестик
@@ -138,5 +138,5 @@ popupClose.forEach(button => {
 
 profileEdit.addEventListener("click", clickEditButton);
 profileAddCard.addEventListener("click", () => openPopup(addCardPopup));
-formEdit.addEventListener("submit", handleFormSubmit);
+formEdit.addEventListener("submit", handleProfileFormSubmit);
 formAdd.addEventListener("submit", clickFormAdd);
