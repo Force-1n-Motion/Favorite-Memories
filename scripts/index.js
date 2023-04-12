@@ -3,54 +3,33 @@ const profileTitle = document.querySelector(".profile__title");
 const profileText = document.querySelector(".profile__text");
 const profileEdit = document.querySelector(".profile__edit");
 const profileAddCard = document.querySelector(".profile__add-card");
-const editPopup = document.querySelector(".popup_edit");
+const popupEditProfile = document.querySelector(".popup_edit");
 const addCardPopup = document.querySelector(".popup_add_card");
 const popupImages = document.querySelector(".popup-images");
 const userName = document.querySelector(".popup__input_user_name");
 const userOccupation = document.querySelector(".popup__input_user_occupation");
 const elementName = document.querySelector(".popup__input_element_name");
 const elementLink = document.querySelector(".popup__input_element_link");
-const formEdit = document.forms["form-edit"];
-const formAdd = document.forms["form-add"];
+const formEditProfile = document.forms["form-edit"];
+const formAddCard = document.forms["form-add"];
 const closeButtons = document.querySelectorAll(".popup__close");
 const cardElements = document.querySelector(".elements");
 const imagePopupPicture = document.querySelector(".popup__image");
 const caption = document.querySelector(".popup__caption");
-
-//-------------------------------------------Массив карточек, добавляемых через template----------------------------------------------------//
-const initialCards = [
-  {
-    name: "Архыз",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
-  },
-  {
-    name: "Челябинская область",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
-  },
-  {
-    name: "Иваново",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
-  },
-  {
-    name: "Камчатка",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
-  },
-  {
-    name: "Холмогорский район",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
-  },
-  {
-    name: "Байкал",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
-  },
-];
+const card = document.querySelector(".elementTemplate").content.querySelector(".element");
+const popupEditInputs = formEditProfile.querySelectorAll(".popup__input");
+const popupCardsInputs = formAddCard.querySelectorAll(".popup__input");
+const submitButtonEditProfile = formEditProfile.querySelector(".popup__save")
+const submitButtonAddCard = formAddCard.querySelector(".popup__save")
+const popupEditForm = document.querySelector(".popup__form_edit");
+const popupCardsForm = document.querySelector(".popup__form_add_card");
 
 //-----------------------------------Универсальные функции открытия и закрытия попапов--------------------------------------------------//
 //Универсальная функция открытия попапов, добавляет класс "popup_opened"
 function openPopup(popup) {
   popup.classList.add("popup_opened");
   document.addEventListener("keydown", escPopup); //Добавляем в Универсальную функцию открытия попапа слушатель нажатия на клавишу ("keydown") первым оргументом и вторым саму функцию заакрытия попапов на эскейп
-};
+}
 
 //Универсальная функция закрытия попапов, удаляет класс "popup_opened"
 function closePopup(popup) {
@@ -61,9 +40,11 @@ function closePopup(popup) {
 
 //Заполнение полей формы данными из профиля
 const clickEditButton = function () {
-  openPopup(editPopup);
+  removeValidationErrors(popupEditForm)
   userName.value = profileTitle.textContent;
-  userOccupation.value = profileText.textContent;
+  userOccupation.value = profileText.textContent; 
+  disableButton(submitButtonEditProfile, {inactiveButtonClass: configValidation.inactiveButtonClass, activeButtonClass: configValidation.activeButtonClass })
+  openPopup(popupEditProfile);
 };
 
 //Сохранение данных профиля
@@ -71,20 +52,18 @@ const handleProfileFormSubmit = function (event) {
   event.preventDefault();
   profileTitle.textContent = userName.value;
   profileText.textContent = userOccupation.value;
-  closePopup(editPopup);
+  closePopup(popupEditProfile);
 };
 
 initialCards.forEach(function (element) {
   cardElements.append(createCard(element.name, element.link));
 });
 
-function createCard(name, link) {
-  const card = document.querySelector(".elementTemplate").content.querySelector(".element");
+function createCard(name, link) { 
   const element = card.cloneNode(true);
   const elementImg = element.querySelector(".element__img");
   const buttonLike = element.querySelector(".element__button-like");
   const buttonDelete = element.querySelector(".element__button-delete");
-
   element.querySelector(".element__text").textContent = name;
   elementImg.alt = name;
   elementImg.src = link;
@@ -97,7 +76,6 @@ function createCard(name, link) {
   );
   // Слушатель удаления изображения
   buttonDelete.addEventListener("click", deleteCard);
-
   return element;
 }
 
@@ -105,7 +83,6 @@ const clickImage = function (name, link) {
   imagePopupPicture.alt = name;
   imagePopupPicture.src = link;
   caption.textContent = name;
-
   openPopup(popupImages);
 };
 
@@ -114,7 +91,7 @@ function saveElement() {
 }
 
 // Добавление изображения
-function clickFormAdd(evt) {
+function submitAddCardForm(evt) {
   evt.preventDefault();
   saveElement(evt);
   evt.target.reset();
@@ -136,8 +113,8 @@ closeButtons.forEach((button) => {
 
 profileEdit.addEventListener("click", clickEditButton);
 profileAddCard.addEventListener("click", () => openPopup(addCardPopup));
-formEdit.addEventListener("submit", handleProfileFormSubmit);
-formAdd.addEventListener("submit", clickFormAdd);
+formEditProfile.addEventListener("submit", handleProfileFormSubmit);
+formAddCard.addEventListener("submit", submitAddCardForm);
 
  //==========================================Объект селекторов и классов, используемых для валидации форм-=====================================================//
  const configValidation = {
@@ -154,9 +131,9 @@ enableValidation(configValidation);
 
 //------------------------------------------------------Функции закрытия попапов на эскейп и оверлэй-------------------------------------------------------//
 //Функция закрытия попапа при клике на оверлэй
-function overlayPopup() {
-  const closeModal = Array.from(document.querySelectorAll(".popup"));
-  closeModal.forEach(popup => {
+function setPopupsOverlayListeners() {
+  const popups = Array.from(document.querySelectorAll(".popup"));
+  popups.forEach(popup => {
     popup.addEventListener("click", function (evt) {
       if(evt.target === evt.currentTarget) {
        popup.classList.remove("popup_opened");
@@ -165,7 +142,7 @@ function overlayPopup() {
   });
 }
 //Вызов функции закрытия попапа при клике на эскейп
-overlayPopup();
+setPopupsOverlayListeners();
 
 function escPopup(evt) { //
   if (evt.code === "Escape") {
@@ -175,3 +152,4 @@ function escPopup(evt) { //
     }
   }
 };
+

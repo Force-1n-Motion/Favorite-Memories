@@ -1,4 +1,4 @@
-const enableValidation = ({formSelector, ...rest}) => {
+const enableValidation = ({ formSelector, ...rest }) => {
   const forms = Array.from(document.querySelectorAll(formSelector))
   forms.forEach(form => {
     form.addEventListener("submit", (evt) => {
@@ -9,13 +9,13 @@ const enableValidation = ({formSelector, ...rest}) => {
 }
 
 const setEventListeners = (validForms, {inputSelector, submitButtonSelector, inputErrorClass, errorClass, ...rest}) => {
-  const inputForms = Array.from(validForms.querySelectorAll(inputSelector))
+  const inputs = Array.from(validForms.querySelectorAll(inputSelector))
   const buttonForms = validForms.querySelector(submitButtonSelector)
   disableButton(buttonForms, rest)
-  inputForms.forEach(input => {
+  inputs.forEach(input => {
     input.addEventListener("input", () => {
       checkInputValidity(input, inputErrorClass, errorClass)
-      if (invalidInput(inputForms)) {
+      if (invalidInput(inputs)) {
         disableButton(buttonForms, rest)
       } else {
         enableButton(buttonForms, rest)
@@ -57,6 +57,15 @@ const disableButton = (button, {inactiveButtonClass, activeButtonClass}) => {
   button.removeAttribute("disable")
 }
 
-const invalidInput = (inputForms) => {
-  return inputForms.some(item => !item.validity.valid)
+const invalidInput = (inputs) => {  
+  return inputs.some(item => !item.validity.valid)
+}
+
+const removeValidationErrors = (form) => { 
+  form.querySelectorAll(configValidation.inputSelector).forEach((input) => {
+    const inputErrorElement = document.querySelector(`#${input.id}-error`)
+    if (!input.validity.valid) {
+     hideInputError(input, inputErrorElement, configValidation.inputErrorClass, configValidation.errorClass)
+   }
+  })
 }
