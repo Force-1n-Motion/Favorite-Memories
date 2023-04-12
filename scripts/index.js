@@ -70,11 +70,11 @@ function createCard(name, link) {
 
   // Открытие изображения
   elementImg.addEventListener("click", () => clickImage(name, link));
-  // Лайк картинки
+  //// Лайк картинки
   buttonLike.addEventListener("click", (evt) =>
     evt.target.classList.toggle("element__button-like_active")
   );
-  // Слушатель удаления изображения
+  //// Слушатель удаления изображения
   buttonDelete.addEventListener("click", deleteCard);
   return element;
 }
@@ -88,9 +88,10 @@ const clickImage = function (name, link) {
 
 function saveElement() {
   cardElements.prepend(createCard(elementName.value, elementLink.value));
+  disableButton(submitButtonAddCard, {inactiveButtonClass: configValidation.inactiveButtonClass, activeButtonClass: configValidation.activeButtonClass })
 }
 
-// Добавление изображения
+//// Добавление изображения
 function submitAddCardForm(evt) {
   evt.preventDefault();
   saveElement(evt);
@@ -112,7 +113,12 @@ closeButtons.forEach((button) => {
 });
 
 profileEdit.addEventListener("click", clickEditButton);
-profileAddCard.addEventListener("click", () => openPopup(addCardPopup));
+
+profileAddCard.addEventListener("click", () => {
+  removeValidationErrors(popupCardsForm)
+  openPopup(addCardPopup)
+});
+
 formEditProfile.addEventListener("submit", handleProfileFormSubmit);
 formAddCard.addEventListener("submit", submitAddCardForm);
 
@@ -127,7 +133,7 @@ formAddCard.addEventListener("submit", submitAddCardForm);
   errorClass: "popup__error_visible",
 };
 
-enableValidation(configValidation);
+enableValidation(configValidation); //Вызов функции ваалидации форм
 
 //------------------------------------------------------Функции закрытия попапов на эскейп и оверлэй-------------------------------------------------------//
 //Функция закрытия попапа при клике на оверлэй
