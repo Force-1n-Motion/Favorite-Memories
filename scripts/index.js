@@ -136,7 +136,7 @@ const configValidation = {
   submitButtonSelector: ".popup__save",
   inactiveButtonClass: "popup__save_disabled", //Класс испольуется в том случае, когда мы работаем с элементом который будет добавляться/убираться, как в случае с данной кнопкой disabled ( этот класс убирается и кнопка становится активна )
   activeButtonClass: "popup__save_enabled",
-  inputErrorClass: "popup__input-error",
+  inputErrorClass: "popup__input_errored",
   errorClass: "popup__error_visible",
 };
 
