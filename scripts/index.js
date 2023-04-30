@@ -47,7 +47,7 @@ function clickEditButton() {
 function handleProfileFormSubmit(event) {
   event.preventDefault();
   profileTitle.textContent = userName.value;
-  profileTitle.textContent = userName.value;
+  profileText.textContent = userOccupation.value;
   closePopup(popupEditProfile);
 };
 
@@ -110,7 +110,7 @@ formAddCard.addEventListener("submit", submitAddCardForm);
 function setPopupsOverlayListeners() {
   const popups = Array.from(document.querySelectorAll(".popup"));
   popups.forEach((popup) => {
-    popup.addEventListener("click", function (evt) {
+    popup.addEventListener("mousedown", function (evt) {
       if (evt.target === evt.currentTarget) {
         popup.classList.remove("popup_opened");
       }
