@@ -21,17 +21,18 @@
         </div>
         <button type="button" class="profile__add-card" aria-label="Добавить карточку"></button>
       </section>
-      <section class="elements" aria-label="Галерея"></section>
-      <template class="elementTemplate">
-        <article class="element">
-          <button type="button" class="element__button-delete"></button>
-          <img class="element__img">
-          <div class="element__content">
-            <h2 class="element__text"></h2>
-            <button type="button" class="element__button-like"></button>
-          </div>
-        </article>
-      </template>
+      <section class="elements" aria-label="Галерея">
+        <template class="elementTemplate" id="idTemplate">
+          <article class="element">
+           <button type="button" class="element__button-delete"></button>
+            <img class="element__img">
+            <div class="element__content">
+              <h2 class="element__text"></h2>
+              <button type="button" class="element__button-like"></button>
+            </div>
+          </article>
+        </template>
+      </section>
     </main>
     <footer class="footer">
       <p class="footer__text">© 2020 Mesto Russia</p>
@@ -70,8 +71,5 @@
         <p class="popup__caption"></p>
       </div>
     </div>
-    <script src="./scripts/constants.js"></script> 
-    <script src="./scripts/validate.js"></script>
-    <script src="./scripts/index.js"></script>
-  </body>
+    <script type="module"  src="./scripts/index.js"></script>
 </html>
