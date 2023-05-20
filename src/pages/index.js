@@ -1,11 +1,11 @@
-import "./pages/index.css"
+import "./index.css";
 
-import Card from "./scripts/components/Card.js";
-import FormValidator from "./scripts/components/FormValidator.js";
-import PopupWithImage from "./scripts/components/PopupWithImage.js";
-import Section from "./scripts/components/Section.js";
-import UserInfo from "./scripts/components/UserInfo.js";
-import PopupWithForm from "./scripts/components/PopupWithForm.js";
+import Card from "../components/Card";
+import FormValidator from "../components/FormValidator.js";
+import PopupWithImage from "../components/PopupWithImage.js";
+import Section from "../components/Section.js";
+import UserInfo from "../components/UserInfo.js";
+import PopupWithForm from "../components/PopupWithForm.js";
 import {
   initialCards,
   profileEdit,
@@ -19,9 +19,9 @@ import {
   configValidation,
   formEditProfile,
   formAddCard,
-} from "./scripts/utils/constants.js";
+} from "../utils/constants.js";
 
-
+// getInputsValue
 const validationEditProfile = new FormValidator(configValidation, formEditProfile) //Экземпляр класса FormValidator для валидации инпутов попапа редактирования профиля
 validationEditProfile.enableValidation()
 
@@ -33,15 +33,13 @@ const userInfo = new UserInfo(profileData); //Экземпляр класса Us
 const popupImage = new PopupWithImage(popupImageSelector); //Экземпляр класса PopupWithImage 
 
 
-const popupProfile = new PopupWithForm(popupProfileSelector, (evt) => { //Экземпляр класса PopupWithForm для функции редактирования профиля
-  evt.preventDefault();
-  userInfo.setUserInfo(popupProfile.getInputsValue())
+const popupProfile = new PopupWithForm(popupProfileSelector, (cardData) => { //Экземпляр класса PopupWithForm для функции редактирования профиля
+  userInfo.setUserInfo(cardData)
   popupProfile.closeForm();
 })
 
-const popupAddCard = new PopupWithForm(popupAddCardSelector, (evt) => { //Экземпляр класса PopupWithForm для функции добавления карточки
-  evt.preventDefault();
-  section.addItem(popupAddCard.getInputsValue())
+const popupAddCard = new PopupWithForm(popupAddCardSelector, (cardData) => { //Экземпляр класса PopupWithForm для функции добавления карточки
+  section.addItem(cardData)
   popupAddCard.closeForm()
 })
 
@@ -52,19 +50,19 @@ const section = new Section({ //Экземпляр класса Section
     return card.createCard();
   }
 }, cardElementsSelector)
-section.ArrayCards()
+section.getArrayCards()
 
 popupImage.setEventListeners() //Вызов публичного метода setEventListeners() для экземпляра класса попапа изображений
 popupProfile.setEventListeners() //Вызов публичного метода setEventListeners() для экземпляра класса попапа редактирования профиля
 popupAddCard.setEventListeners() //Вызов публичного метода setEventListeners() для экземпляра класса попапа добавления карточек
 
-profileEdit.addEventListener("mousedown", () => { //Обработчик клика по кнопке (карандаш) редактирования профиля
+profileEdit.addEventListener("click", () => { //Обработчик клика по кнопке (карандаш) редактирования профиля
   validationEditProfile.removeValidationErrors();
   popupProfile.setInputsValue(userInfo.getUserInfo())
   popupProfile.openPopup()
 });
 
-profileAddCard.addEventListener("mousedown", () => { //Обработчик клика по кнопке (крестик) добавления карточки
+profileAddCard.addEventListener("click", () => { //Обработчик клика по кнопке (крестик) добавления карточки
   validationAddCard.removeValidationErrors();
   popupAddCard.openPopup()
 });

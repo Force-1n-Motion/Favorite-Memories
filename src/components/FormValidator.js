@@ -26,13 +26,13 @@ export default class FormValidator {
   _enableButton() {
     this._button.classList.remove(this._inactiveButtonClass)
     this._button.classList.add(this._activeButtonClass)
-    this._button.setAttribute("disable", true)
+    this._button.removeAttribute("disabled")
   }
   
   disableButton() {
     this._button.classList.add(this._inactiveButtonClass)
     this._button.classList.remove(this._activeButtonClass)
-    this._button.removeAttribute("disable")
+    this._button.setAttribute("disabled", true)
   }
 
   _invalidInput() {  
