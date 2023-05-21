@@ -43,12 +43,14 @@ const popupAddCard = new PopupWithForm(popupAddCardSelector, (cardData) => { //�
   popupAddCard.closeForm()
 })
 
-const section = new Section({ //Экземпляр класса Section
-  items: initialCards,
-  renderer: (element) => {
+
+  const renderer = (element) => {
     const card = new Card(element, selectorTemplate, popupImage.openPopup);
     return card.createCard();
   }
+
+const section = new Section({ //Экземпляр класса Section
+  items: initialCards, renderer
 }, cardElementsSelector)
 section.getArrayCards()
 
