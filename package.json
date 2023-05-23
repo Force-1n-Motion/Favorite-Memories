@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
-    "dev": "webpack serve --open --mode development"
+    "dev": "webpack serve --open --mode development",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "author": "Sarcastic  Exetto@gmail.com",
   "license": "ISC",
@@ -17,6 +19,7 @@
     "cssnano": "^6.0.1",
     "file": "^0.2.2",
     "file-loader": "^6.2.0",
+    "gh-pages": "^5.0.0",
     "html-webpack-plugin": "^5.5.1",
     "loader": "^2.1.1",
     "mini-css-extract-plugin": "^2.7.5",

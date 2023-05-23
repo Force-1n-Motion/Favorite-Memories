@@ -1,4 +1,4 @@
-# Проект: Mesto
+# Проект: Favorite-Memories
 
 ## **Russia**
 
@@ -28,4 +28,4 @@
 19 _Подключение модальных окон_
 20 _Реализация валидации форм и многое другое._
 
-https://sarcast1c.github.io/mesto/
+https://sarcast1c.github.io/Favorite-Memories
