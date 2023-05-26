@@ -1,4 +1,5 @@
 import "./index.css";
+import Api from "../components/api";
 
 import Card from "../components/Card";
 import FormValidator from "../components/FormValidator.js";
@@ -49,10 +50,25 @@ const popupAddCard = new PopupWithForm(popupAddCardSelector, (cardData) => { //�
     return card.createCard();
   }
 
-const section = new Section({ //Экземпляр класса Section
-  items: initialCards, renderer
+const section = new Section((element) => { //Экземпляр класса Section
+  section.addItem(renderer(element))
 }, cardElementsSelector)
-section.getArrayCards()
+
+section.getArrayCards(initialCards)
+
+const api = new Api({
+  baseUrl: "https://mesto.nomoreparties.co/v1/cohort-66",
+  headers: {
+    authorization: "e953470f-7b3a-4696-9a09-3ba0a29b5fee",
+    "Content-Type": "application/json"
+  }
+})
+
+Promise.all([api.getInfo(), api.getCards()])
+  .then(([userInfo, cardInfo]) => {
+    console.log(userInfo)
+    console.log(cardInfo)
+})
 
 popupImage.setEventListeners() //Вызов публичного метода setEventListeners() для экземпляра класса попапа изображений
 popupProfile.setEventListeners() //Вызов публичного метода setEventListeners() для экземпляра класса попапа редактирования профиля

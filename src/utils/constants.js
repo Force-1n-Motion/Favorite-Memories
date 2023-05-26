@@ -32,10 +32,13 @@ const formEditProfile = document.forms["form-edit"];
 const formAddCard = document.forms["form-add"];
 
 const selectorTemplate = "#idTemplate";
-const popupProfileSelector = ".popup_edit";
+const popupProfileSelector = ".popup-edit";
 const popupImageSelector = ".popup-images";
-const popupAddCardSelector = ".popup_add_card";
+const popupAddCardSelector = ".popup-add-card";
 const cardElementsSelector = ".elements";
+
+// const popupAvatar = ".popup-avatar";
+// const popupDeleteCard = ".popup-delete-card";
 
 const profileData = { //Создаем объект профиля
   editNameSelector: ".profile__title", 

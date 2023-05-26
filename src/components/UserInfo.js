@@ -2,6 +2,7 @@ export default class UserInfo {
   constructor(profileData) {  //Создаем конструктор класса, в () пишем параметр- объект данных профиля, созданный в индексе
     this._editName = document.querySelector(profileData.editNameSelector); //Обращаемся к одному из свойств объекта и методом квери селектор находим дом элемент- ".profile__edit"
     this._editJob = document.querySelector(profileData.editJobSelector); //Обращаемся к одному из свойств объекта и методом квери селектор находим дом элемент- ".profile__text"
+     this._editAvatar = this._editAvatar = document.querySelector(profileData.editJobSelector);
   }
 
   getUserInfo() { //Создаем публичный метод, который возвращает данные, он попадает в первую форму попапа и отвечает за редактирование профиля, поэтому свойства названы так же как  name в инпутах этой формы
