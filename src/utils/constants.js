@@ -42,7 +42,8 @@ const cardElementsSelector = ".elements";
 
 const profileData = { //Создаем объект профиля
   editNameSelector: ".profile__title", 
-  editJobSelector: ".profile__text"
+  editJobSelector: ".profile__text",
+  editAvatarSelector: ".profile__avatar"
 }
 
 

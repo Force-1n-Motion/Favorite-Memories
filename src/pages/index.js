@@ -65,9 +65,8 @@ const api = new Api({
 })
 
 Promise.all([api.getInfo(), api.getCards()])
-  .then(([userInfo, cardInfo]) => {
-    console.log(userInfo)
-    console.log(cardInfo)
+  .then(([userBox, cardBox]) => {
+  // userInfo.setUserInfo()
 })
 
 popupImage.setEventListeners() //Вызов публичного метода setEventListeners() для экземпляра класса попапа изображений

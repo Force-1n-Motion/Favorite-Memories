@@ -2,19 +2,19 @@
   background-image: url(../../../../images/Pen.png);
   background-position: 50%;
   background-repeat: no-repeat;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.8);
   background-size: 26px;
   border: none;
   padding: 0;
   cursor: pointer;
   position: absolute;
-  width: 26px;
-  height: 26px;
-  top: 50px;
-  left: 50px;
+  width: 120px;
+  height: 120px;
+  left: 0;
   visibility: hidden;
 }
 
 .profile__avatar_button:hover {
-visibility: visible
+ opacity: 0.3;
 }
+
