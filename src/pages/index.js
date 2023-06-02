@@ -139,5 +139,5 @@ profileAvatar.addEventListener("click", () => { //Обработчик клик�
 profileAddCard.addEventListener("click", () => { //Обработчик клика по кнопке (крестик) добавления карточки
   validationAddCard.removeValidationErrors();
   popupAddCard.openPopup()
-});
+})
 
