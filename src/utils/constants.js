@@ -1,6 +1,6 @@
 const profileEdit = document.querySelector(".profile__edit"); //Находит кнопку карандаш (открытие попапа редактирования профиля)
 const profileAddCard = document.querySelector(".profile__add-card"); //Находит кнопку крестик (открытие попапа добавления карточек)
-const profileAvatar = document.querySelector(".profile__avatar_button")
+const profileAvatar = document.querySelector(".profile__avatar-button")
 const formEditProfile = document.forms["form-edit"];
 const formAddCard = document.forms["form-add"];
 const formAvatar = document.forms["form-avatar"];
