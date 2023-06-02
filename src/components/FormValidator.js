@@ -10,7 +10,7 @@ export default class FormValidator {
     this._button = this._form.querySelector(this._submitButtonSelector);
     this._cardElements = this._form.querySelectorAll(this._inputSelector);
   }
-
+  
   _showInputError(inputErrorContainer, input) {
     input.classList.add(this._inputErrorClass);
     inputErrorContainer.classList.add(this._errorClass);
