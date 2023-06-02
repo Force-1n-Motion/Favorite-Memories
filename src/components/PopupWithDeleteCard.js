@@ -8,7 +8,7 @@ export default class PopupWithDeleteCard extends Popup {
     this._textSubmitButton = this._submitButton.textContent;
     
   }
-
+  
   setEventListeners() {
     super.setEventListeners()
     this._form.addEventListener("submit", (evt) => {

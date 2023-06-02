@@ -48,7 +48,7 @@ export default class Card { //Создаем класс
     })
     this._counter.textContent = this._likesLength
   }
-
+ 
     toggleLikeIkon(likes) {
       this._buttonLike.classList.toggle("element__button-like_active")
       this._counter.textContent = likes.length
