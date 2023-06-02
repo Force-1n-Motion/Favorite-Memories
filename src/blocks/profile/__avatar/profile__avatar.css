@@ -4,7 +4,3 @@
   height: 120px;
   object-fit: cover;
 }
-
-.profile__avatar:hover {
-  opacity: 0.3;
-}

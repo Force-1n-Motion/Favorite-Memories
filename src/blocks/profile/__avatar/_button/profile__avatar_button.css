@@ -11,10 +11,11 @@
   width: 120px;
   height: 120px;
   left: 0;
-  visibility: hidden;
+  opacity: 0;
+  border-radius: 50%;
 }
 
 .profile__avatar_button:hover {
- opacity: 0.3;
+opacity: 1;
 }
 

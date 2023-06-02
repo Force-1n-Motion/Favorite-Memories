@@ -1,44 +1,16 @@
-//-------------------------------------------Массив карточек, добавляемых через template----------------------------------------------------//
- const initialCards = [
-  {
-    title: "Архыз",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
-  },
-  {
-    title: "Челябинская область",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
-  },
-  {
-    title: "Иваново",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
-  },
-  {
-    title: "Камчатка",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
-  },
-  {
-    title: "Холмогорский район",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
-  },
-  {
-    title: "Байкал",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
-  }
-];
-
 const profileEdit = document.querySelector(".profile__edit"); //Находит кнопку карандаш (открытие попапа редактирования профиля)
 const profileAddCard = document.querySelector(".profile__add-card"); //Находит кнопку крестик (открытие попапа добавления карточек)
+const profileAvatar = document.querySelector(".profile__avatar_button")
 const formEditProfile = document.forms["form-edit"];
 const formAddCard = document.forms["form-add"];
-
+const formAvatar = document.forms["form-avatar"];
 const selectorTemplate = "#idTemplate";
 const popupProfileSelector = ".popup-edit";
 const popupImageSelector = ".popup-images";
 const popupAddCardSelector = ".popup-add-card";
 const cardElementsSelector = ".elements";
-
-// const popupAvatar = ".popup-avatar";
-// const popupDeleteCard = ".popup-delete-card";
+const popupAvatarSelector = ".popup-avatar"; 
+const popupDeleteCardSelector = ".popup-delete-card";
 
 const profileData = { //Создаем объект профиля
   editNameSelector: ".profile__title", 
@@ -59,16 +31,21 @@ const configValidation = {
 };
 
 export {
-  initialCards,
+  
   profileEdit,
   profileAddCard,
+  profileAvatar,
   selectorTemplate,
   popupProfileSelector,
   popupImageSelector,
   popupAddCardSelector,
+  popupAvatarSelector,
+  popupDeleteCardSelector,
   cardElementsSelector,
   profileData,
   configValidation,
   formEditProfile,
   formAddCard,
+  formAvatar,
+  
 }

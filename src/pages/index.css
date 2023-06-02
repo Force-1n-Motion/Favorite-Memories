@@ -14,6 +14,7 @@
 @import url(../blocks/profile/__add-card/profile__add-card.css);
 @import url(../blocks/elements/elements.css);
 @import url(../blocks/element/element.css);
+@import url(../blocks/element/__counter/elements__counter.css);
 @import url(../blocks/element/__button-delete/element__button-delete.css);
 @import url(../blocks/element/__button-like/element__button-like.css);
 @import url(../blocks/element/__button-like/_active/element__button-like_active.css);
