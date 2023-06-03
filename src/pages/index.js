@@ -104,7 +104,7 @@ const popupDeleteCard = new PopupWithDeleteCard(popupDeleteCardSelector, ({ card
           .catch((error) => console.error(`Ошибка добавления лайка ${error}`))
       }
     });
-    return card.createCard();
+    return card.createCard()
   }
 
 const section = new Section((element) => { //Экземпляр класса Section
