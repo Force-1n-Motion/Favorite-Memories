@@ -22,7 +22,7 @@ export default class FormValidator {
     inputErrorContainer.classList.remove(this._errorClass);
     inputErrorContainer.textContent = "";
   }
-
+  
   _enableButton() {
     this._button.classList.remove(this._inactiveButtonClass)
     this._button.classList.add(this._activeButtonClass)

@@ -17,4 +17,12 @@ export default class UserInfo {
     this._editName.textContent = name;
     this._editJob.textContent = occupation;
   }
+
+  setId(id) {
+    this._id = id
+  }
+
+  getId() {
+    return this._id
+  }
 }

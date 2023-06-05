@@ -20,9 +20,9 @@ export default class PopupWithDeleteCard extends Popup {
   
 resetTextSubmitButton() {
   this._submitButton.textContent = this._textSubmitButton
-
-}
-  openPopup = (card, idCard) => {
+  }
+  
+  openPopup = ({ card, idCard }) => {
     super.openPopup();
     this._element = card;
     this._idCard = idCard;

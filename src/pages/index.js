@@ -68,9 +68,9 @@ const popupEditAvatar = new PopupWithForm(popupAvatarSelector, (data) => { //Э�
 });
 
 const popupAddCard = new PopupWithForm(popupAddCardSelector, (data) => { //Экземпляр класса PopupWithForm для функции добавления одной  карточки лично
-  Promise.all([api.getInfo(), api.addCard(data)])
-    .then(([userBox, cardBox]) => {
-      cardBox.idDeveloper = userBox._id
+   api.addCard(data)
+    .then(cardBox => {
+      cardBox.idDeveloper = userInfo.getId()
       section.addItem(renderer(cardBox))
       popupAddCard.closeForm()
   })
@@ -82,7 +82,7 @@ const popupDeleteCard = new PopupWithDeleteCard(popupDeleteCardSelector, ({ card
   api.deletecard(idCard)
     .then(res => {
       card.removeCardItem()
-      popupDeleteCard.closeForm()
+      popupDeleteCard.closePopup()
     }) 
     .catch((error) => console.error(`Ошибка удаления карточки ${error}`))
     .finally(() => popupDeleteCard.resetTextSubmitButton())
@@ -115,7 +115,8 @@ Promise.all([api.getInfo(), api.getCards()])
   .then(([userBox, cardBox]) => {
     cardBox.forEach(element => element.idDeveloper = userBox._id)
     userInfo.setUserInfo({ name: userBox.name, occupation: userBox.about, avatar: userBox.avatar })
-    section.getArrayCards(cardBox)
+    userInfo.setId(userBox._id)
+    section.renderItems(cardBox.reverse())
   })
   .catch((error => console.error(`Ошибка при создании начальных данных страницы ${error}`)))
 
@@ -123,6 +124,7 @@ popupImage.setEventListeners() //Вызов публичного метода se
 popupProfile.setEventListeners() //Вызов публичного метода setEventListeners() для экземпляра класса попапа редактирования профиля
 popupAddCard.setEventListeners() //Вызов публичного метода setEventListeners() для экземпляра класса попапа добавления карточек
 popupEditAvatar.setEventListeners()
+popupDeleteCard.setEventListeners()
 
 profileEdit.addEventListener("click", () => { //Обработчик клика по кнопке (карандаш) редактирования профиля
   validationEditProfile.removeValidationErrors();
@@ -132,7 +134,6 @@ profileEdit.addEventListener("click", () => { //Обработчик клика 
 
 profileAvatar.addEventListener("click", () => { //Обработчик клика по кнопке (карандаш) изменение аватара
   validationAvatar.removeValidationErrors();
-  popupEditAvatar.setInputsValue(userInfo.getUserInfo())
   popupEditAvatar.openPopup()
 })
 
