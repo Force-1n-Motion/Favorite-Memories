@@ -7,6 +7,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  color: #b5acac;
 }
 
 @media (max-width: 400px) {
